@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My Wishlist
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item *ngFor="let item of shareItems" style="margin-bottom: 10px;">
+    <ion-thumbnail style="width: 100px; height: 100px;">
+      <img [src]="item.Image" alt="">
+    </ion-thumbnail>
+    <ion-label style="padding: 20px;">{{item.name }}</ion-label>
+    <ion-text>{{'Rs.'+item.price }}</ion-text>
+    <ion-button class="btn" fill="clear" (click)="addToBuyPage(item)">Buy Now</ion-button>
+    <ion-icon name="remove-circle" (click)="removeFromCart(item)" style="padding: 15px;"></ion-icon>
+  </ion-item>
+</ion-content>

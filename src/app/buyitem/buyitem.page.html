@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+   <ion-back-button slot="start" style="width: 20px;"></ion-back-button>
+    <ion-title>Buy Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item *ngFor="let item of buyItems" style="margin-bottom: 10px;">
+    <ion-thumbnail style="width: 100px; height: 100px;">
+      <img [src]="item.Image" alt="">
+    </ion-thumbnail>
+    <ion-label style="padding: 20px;">{{item.name }}</ion-label>
+    <ion-text>{{'Rs.'+item.price }}</ion-text>
+  </ion-item>
+  <h3>Address</h3>
+  <ion-item >
+    <ion-select class="address-Container" label="Address" placeholder="Select Address" label-placement="floating">
+      <ion-select-option *ngFor="let item of address" [value]="item">{{ item.name }}{{ item.no }}({{ item.type }})</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <div>
+
+    <div style="display: flex; justify-content: space-between; margin-top: 20px; padding: 20px; font-size: 20px;">
+      <ion-label style="">Subtotal</ion-label>
+      <ion-text>{{'Rs:'+' '+ charges.subtotal }}</ion-text>
+    </div>
+
+  </div>
+
+</ion-content>

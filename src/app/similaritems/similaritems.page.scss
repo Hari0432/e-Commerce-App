@@ -1,0 +1,25 @@
+.image-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .centered-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #34aedb;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  .image-container img:hover {
+    opacity: .7;
+  }
+  .image-container:hover .centered-button {
+    opacity: 1; 
+    display: block;
+  }

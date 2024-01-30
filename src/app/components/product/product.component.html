@@ -1,0 +1,6 @@
+<ion-item  *ngFor="let item of items" (click)="goItemPage(item)">
+  <ion-label >
+    <p style="font-size: 20px;">{{item?.name}}</p>
+  </ion-label>
+  <img [src]="item?.Image" alt="product_Thumbnail" style="width: 100%; height: 400px;">
+</ion-item>

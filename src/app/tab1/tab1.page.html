@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="categories">
+    <div class="electronic" (click)="redirect()">
+      <img src="https://www.pngall.com/wp-content/uploads/14/Pink-iPhone-13-PNG-Picture-300x225.png" alt="electronic_Images">
+    </div>
+    <div class="home">
+      <img src="https://clipart.info/images/ccovers/1486144528home-appliances-png-quality.png" alt="home_appliences">
+    </div>
+    <div class="fashion">
+      <img src="https://www.pngall.com/wp-content/uploads/5/Fashion-Accessories-PNG-HD-Image.png" alt="fashion">
+    </div>
+    <div class="grocery">
+      <img src="https://www.pngall.com/wp-content/uploads/4/Grocery-PNG-Free-Download.png" alt="grocery">
+    </div>
+  </div>
+
+  <div class="slider-container">
+    <h3>Top Products</h3>
+    <swiper #swiper (afterInit)="swiperReady()" (slideChange)="swiperSlideChange($event)"
+    [loop]="true"
+     [autoplay]="{ delay: 3000, disableOnInteraction: false }" [speed]="1000" [spaceBetween]="30">
+      <ng-template *ngFor="let gadImage of gadgetsImages" swiperSlide>
+        <div class="swiper-image-container">
+          <img [src]="gadImage" alt="">
+        </div>
+      </ng-template>
+    </swiper>
+    <h3>Great Offers</h3>
+    <swiper #swiper (afterInit)="swiperReady()" (slideChange)="swiperSlideChange($event)"
+      [loop]="true"
+      [autoplay]="{ delay: 4000, disableOnInteraction: false }" [speed]="1000" [spaceBetween]="30">
+      <ng-template *ngFor="let appImage of applianceImages" swiperSlide>
+        <div class="swiper-image-container">  
+          <img [src]="appImage" alt="">
+        </div>
+      </ng-template>
+    </swiper>
+    <h3>Great Offers</h3>
+    <swiper #swiper (afterInit)="swiperReady()" (slideChange)="swiperSlideChange($event)"
+      [loop]="true"
+      [autoplay]="{ delay: 4000, disableOnInteraction: false }" [speed]="1000" [spaceBetween]="30">
+      <ng-template *ngFor="let appImage of applianceImages" swiperSlide>
+        <div class="swiper-image-container">
+          <img [src]="appImage" alt="">
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+</ion-content>

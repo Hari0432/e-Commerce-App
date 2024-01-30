@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" (click)="navCtrl.navigateBack('/tabs')">
+      <img style="width: 25px; height: 30px;" src="https://img.icons8.com/material-sharp/24/FFFFFF/left.png" alt="">
+    </ion-button>
+    <ion-title>Electronic Gadgets</ion-title>
+    <ion-button fill="clear" slot="end" (click)="toggleSearch()" >
+      <img src="https://img.icons8.com/fluency-systems-filled/48/FFFFFF/search.png" alt="" style="width: 30px; height: 30px;" *ngIf="isSearchBox == false">
+      <img src="https://img.icons8.com/material-rounded/24/FFFFFF/cancel--v1.png" alt="" style="width: 30px; height: 30px;" *ngIf="isSearchBox == true">
+    </ion-button>
+  </ion-toolbar>
+  <ion-item *ngIf="isSearchBox">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterItems($event)" style="margin: 5px 0;" *ngIf="isSearchBox == true"></ion-searchbar>
+  </ion-item>
+  <ion-list *ngIf="isSearchBox == true">
+    <ion-item *ngFor="let item of filteredItems">
+      <ion-label (click)="goToCategory(item.category)">{{ item.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="items.length > 0">
+    <app-product></app-product>
+  </ion-list>
+
+</ion-content>

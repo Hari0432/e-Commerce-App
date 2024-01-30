@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>My Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item *ngFor="let item of cartItems" style="margin-bottom: 10px;">
+    <ion-thumbnail style="width: 100px; height: 100px;">
+      <img [src]="item.Image" alt="">
+    </ion-thumbnail>
+    <ion-label style="padding: 20px;">{{item.name }}</ion-label>
+    <ion-text>{{'Rs.'+item.price }}</ion-text>
+    <ion-icon name="remove-circle" (click)="removeFromCart(item)" style="padding: 15px;"></ion-icon>
+  </ion-item>
+
+  <div style="display: flex; justify-content: space-between;">
+    <ion-label>Subtotal</ion-label>
+    <ion-text>{{ charges.subtotal }}</ion-text>
+  </div>
+
+  <ion-button fill="clear" (click)="addToBuyPage()" style="float: right; background: #ffffff; color: #fd3535; border-radius: 20px; font-weight: 600; padding: 5px 10px;">Buy Now</ion-button>
+
+</ion-content>
